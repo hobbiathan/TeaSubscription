@@ -11,4 +11,8 @@ module ExceptionHandler
       json_response({ message: e.message }, :unprocessable_entity)
     end
   end
+
+  def error(body)
+   json_response({ "error": {"message" => body} }, :bad_request)
+  end
 end
