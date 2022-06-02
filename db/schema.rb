@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_01_215318) do
+ActiveRecord::Schema.define(version: 2022_06_02_144735) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "customers", force: :cascade do |t|
     t.string "first_name"
@@ -24,12 +27,33 @@ ActiveRecord::Schema.define(version: 2022_06_01_215318) do
   create_table "subscriptions", force: :cascade do |t|
     t.string "title"
     t.string "price"
-    t.string "status"
-    t.string "frequency"
+    t.integer "status"
+    t.integer "frequency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "customer_id"
+    t.bigint "customer_id"
     t.index ["customer_id"], name: "index_subscriptions_on_customer_id"
   end
 
+  create_table "tea_subs", force: :cascade do |t|
+    t.bigint "tea_id"
+    t.bigint "subscription_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subscription_id"], name: "index_tea_subs_on_subscription_id"
+    t.index ["tea_id"], name: "index_tea_subs_on_tea_id"
+  end
+
+  create_table "teas", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.integer "temperature"
+    t.string "brew_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "subscriptions", "customers"
+  add_foreign_key "tea_subs", "subscriptions"
+  add_foreign_key "tea_subs", "teas"
 end
