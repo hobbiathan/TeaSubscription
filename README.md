@@ -1,4 +1,4 @@
-# README
+# README (or don't no need to be rude about it)
 ## Cloning and Running
 
 When cloning this project down to your machine, the repository should automate most of the stuff it requires and will tell you what you need to do otherwise (e.g., Ruby Versioning, Rails Versioning, etc...), however, you _will_ need to run the command `bundle install` after the cloning is completed in-order to get the required gems for functionality. After this is done, you will be required to run the following command as well:
