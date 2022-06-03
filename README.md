@@ -44,7 +44,7 @@ The `POST /api/v1/subscriptions` endpoint is used for creating a new subscriptio
 
 
 ### PATCH /api/v1/subscriptions 
-The `PATCH /api/v1/subscriptions` endpoint is currently limited purely to activating or deactivating a given subscription. Possible functionality would include adding/removing teas, and changing frequency. The endpoint requires a request body who's structure is that of the following:
+The `PATCH /api/v1/subscriptions` endpoint is currently limited purely to activating or deactivating a given subscription. Possible functionality would include adding/removing teas, and changing frequency. Status' are represented in binary, with `0` representing `active`, and `1` representing `inactive`, respectively. The endpoint requires a request body who's structure is that of the following:
 
 ```json
 {
