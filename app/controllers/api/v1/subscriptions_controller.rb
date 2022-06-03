@@ -41,16 +41,19 @@ class Api::V1::SubscriptionsController < ApplicationController
       error("No status code provided.")
     else
       @sub = Subscription.find(params[:subscription_id])
-
-      if @sub.status == "active" && params[:status] == 0
-        error("Subscription is already active.")
-      elsif @sub.status == "inactive" && params[:status] == 1
-        error("Subscription is already inactive.")
+      if params[:status] != 0 || params[:status] != 1
+        error("Bad status code - Please refer to documentation.")
       else
-        @sub.update(status: params[:status])
+        if @sub.status == "active" && params[:status] == 0
+          error("Subscription is already active.")
+        elsif @sub.status == "inactive" && params[:status] == 1
+          error("Subscription is already inactive.")
+        else
+          @sub.update(status: params[:status])
 
-        if @sub.save
-          json_response(SubscriptionSerializer.new(@sub), :created)
+          if @sub.save
+            json_response(SubscriptionSerializer.new(@sub), :created)
+          end
         end
       end
     end
