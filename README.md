@@ -32,12 +32,12 @@ The `POST /api/v1/customer` endpoint is used for creating a customer within the 
 The API will tell you if a necessary field is missing, or if the email provided has already been taken - otherwise, you will receive a successful response with a serialized set of a data regarding the new user.
 
 ### POST /api/v1/subscriptions
-The `POST /api/v1/subscriptions` endpoint is used for creating a new subscription for a given user - currently, the API is limited to a single tea which is found user its respective ID within the database (in our case, we only have "Matcha" tea, under `ID 1`). The frequency of a subscription is represented with `0`, `1`, `2`, which translate to `weekly`, `biweekly`, and `monthly` due to an enum within the `subscription` model. The endpoint requires a request body who's structure is that of the following:
+The `POST /api/v1/subscriptions` endpoint is used for creating a new subscription for a given user - currently, the API is limited to a single tea which is through it's `title` attribute within the database (in our case, we only have "Matcha" tea). The frequency of a subscription is represented with `0`, `1`, `2`, which translate to `weekly`, `biweekly`, and `monthly` due to an enum within the `subscription` model. The endpoint requires a request body who's structure is that of the following:
 
 ```json
 {
   "email": "hubertroberts@gmail.com",
-  "tea": "1",
+  "tea": "Matcha",
   "frequency": 0
 }
 ```
