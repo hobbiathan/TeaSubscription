@@ -11,7 +11,7 @@ After that is completed, the app should be up and functional.
 
 The TeaSubscription API only contains 4 endpoints, which are the following:
 
-#### POST /api/v1/customers
+### POST /api/v1/customers
 The `POST /api/v1/customer` endpoint is used for creating a customer within the database which is required for the functionality of the rest of the app. The endpoint requires a request body who's structure is that of the following:
 
 ```json
@@ -25,7 +25,7 @@ The `POST /api/v1/customer` endpoint is used for creating a customer within the 
 
 The API will tell you if a necessary field is missing, or if the email provided has already been taken - otherwise, you will receive a successful response with a serialized set of a data regarding the new user.
 
-#### POST /api/v1/subscriptions
+### POST /api/v1/subscriptions
 The `POST /api/v1/subscriptions` endpoint is used for creating a new subscription for a given user - currently, the API is limited to a single tea which is found user its respective ID within the database (in our case, we only have "Matcha" tea, under `ID 1`). The frequency of a subscription is represented with `0`, `1`, `2`, which translate to `weekly`, `biweekly`, and `monthly` due to an enum within the `subscription` model. The endpoint requires a request body who's structure is that of the following:
 
 ```json
@@ -37,7 +37,7 @@ The `POST /api/v1/subscriptions` endpoint is used for creating a new subscriptio
 ```
 
 
-#### PATCH /api/v1/subscriptions 
+### PATCH /api/v1/subscriptions 
 The `PATCH /api/v1/subscriptions` endpoint is currently limited purely to activating or deactivating a given subscription. Possible functionality would include adding/removing teas, and changing frequency. The endpoint requires a request body who's structure is that of the following:
 
 ```json
@@ -47,7 +47,7 @@ The `PATCH /api/v1/subscriptions` endpoint is currently limited purely to activa
 }
 ```
 
-#### GET /api/v1/subscriptions
+### GET /api/v1/subscriptions
 The `GET /api/v1/subscriptions` endpoint is the most simple of the endpoints. It just requires an email that exists within the database, which will then give you a serialized set of all the users subscriptions. The endpoint requires a request body who's structure is that of the following:
 
 ```json
