@@ -59,6 +59,6 @@ class Api::V1::SubscriptionsController < ApplicationController
   private
   def get_info
     @customer = Customer.find_by_email(params[:email])
-    @tea = Tea.find(params[:tea])
+    @tea = Tea.find_by_title(params[:tea])
   end
 end
