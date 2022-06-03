@@ -7,6 +7,12 @@ When cloning this project down to your machine, the repository should automate m
 
 After that is completed, the app should be up and functional.
 
+## Database Structure
+![Screen Shot 2022-06-03 at 9 10 36 AM](https://user-images.githubusercontent.com/77761679/171881814-bee6e7ad-ddb8-489a-a8ba-ec3d482bcf6a.png)
+
+This API employs both one to many, and many to many relationships.
+A customer can have many different subscriptions, each unique to them. Each subscription can have multiple teas included within it, and each tea can belong in multiple subscription. If given more time, this would allow for the creation of dynamic subscriptions that can change in value with the respective amount of teas and frequency.
+
 ## Endpoints
 
 The TeaSubscription API only contains 4 endpoints, which are the following:
