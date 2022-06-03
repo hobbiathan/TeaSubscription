@@ -28,8 +28,6 @@ class Api::V1::SubscriptionsController < ApplicationController
           tea_sub = TeaSub.create(tea_id: @tea.id, subscription_id: sub.id)
           if sub.save
             json_response(SubscriptionSerializer.new(sub), :created)
-          else
-            render json_response
           end
         end
       end

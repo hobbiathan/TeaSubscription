@@ -142,5 +142,39 @@ RSpec.describe 'Subscription API', type: :request do
         end
       end
     end
+
+      context 'status' do
+        describe 'same status' do
+          before(:each) do
+            Tea.create!(title: "Matcha", description: "asofhasdf", temperature: 30, brew_time: "50")
+            @frequency_body = {
+                            "email": "hubertroberts@gmail.com",
+                            "tea": "Matcha",
+                            "frequency": 0
+            }
+
+            @customer = {
+                            "first_name": "Hubert",
+                            "last_name": "Roberts",
+                            "email": "hubertroberts@gmail.com",
+                            "address": "399 S. Layoni"
+            }
+
+            @test_body = {
+                            "subscription_id": "",
+                            "status": "1"
+            }
+
+          end
+
+          it 'throws error' do
+            post "/api/v1/customers", :params => @customer
+            post "/api/v1/subscriptions", :params => @frequency_body
+            patch "/api/v1/subscriptions", :params => @test_body
+            expect(response).to_not be_successful
+            expect(response).to have_http_status(400)
+          end
+        end
+      end
   end
 end
