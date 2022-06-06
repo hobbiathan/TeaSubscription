@@ -3,7 +3,7 @@
 
 When cloning this project down to your machine, the repository should automate most of the stuff it requires and will tell you what you need to do otherwise (e.g., Ruby Versioning, Rails Versioning, etc...), however, you _will_ need to run the command `bundle install` after the cloning is completed in-order to get the required gems for functionality. After this is done, you will be required to run the following command as well:
 
-`rails db:{create,migrate}`
+`rails db:{create,migrate,seed}`
 
 After that is completed, the app should be up and functional, simply run `rails s` and fire up your API platform of choice.
 
@@ -32,7 +32,7 @@ The `POST /api/v1/customer` endpoint is used for creating a customer within the 
 The API will tell you if a necessary field is missing, or if the email provided has already been taken - otherwise, you will receive a successful response with a serialized set of a data regarding the new user.
 
 ### POST /api/v1/subscriptions
-The `POST /api/v1/subscriptions` endpoint is used for creating a new subscription for a given user - currently, the API is limited to a single tea which is through it's `title` attribute within the database (in our case, we only have "Matcha" tea). The frequency of a subscription is represented with `0`, `1`, `2`, which translate to `weekly`, `biweekly`, and `monthly` due to an enum within the `subscription` model. The endpoint requires a request body who's structure is that of the following:
+The `POST /api/v1/subscriptions` endpoint is used for creating a new subscription for a given user - currently, the API is limited to a single tea which is through it's `title` attribute within the database (only 3 types of tea exist by default when setting up the application, being `"Matcha"`, `"Yerba Mate"`, and `"Green Tea"`). The frequency of a subscription is represented with `0`, `1`, `2`, which translate to `weekly`, `biweekly`, and `monthly` due to an enum within the `subscription` model. The endpoint requires a request body who's structure is that of the following:
 
 ```json
 {
