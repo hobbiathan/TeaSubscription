@@ -1,5 +1,5 @@
 class Api::V1::SubscriptionsController < ApplicationController
-  before_action :get_info, only: [:create, :update]
+  before_action :get_info, only: [:create, :update, :destroy]
 
   def index
     @customer = Customer.find_by_email(params[:email])
@@ -41,9 +41,9 @@ class Api::V1::SubscriptionsController < ApplicationController
       error("No status code provided.")
     else
       @sub = Subscription.find(params[:subscription_id])
-      if params[:status] != 0 || params[:status] != 1
-        error("Bad status code - Please refer to documentation.")
-      else
+      # if params[:status] != 0 || params[:status] != 1
+      #   error("Bad status code - Please ")
+      # else
         if @sub.status == "active" && params[:status] == 0
           error("Subscription is already active.")
         elsif @sub.status == "inactive" && params[:status] == 1
@@ -55,7 +55,20 @@ class Api::V1::SubscriptionsController < ApplicationController
             json_response(SubscriptionSerializer.new(@sub), :created)
           end
         end
-      end
+      #end
+    end
+  end
+
+  def destroy
+    if params[:subscription_id].blank?
+      error("No Subscription ID provided.")
+    elsif params[:email].blank?
+      error("No Email provided.")
+    else
+      sub = Subscription.find(params[:subscription_id])
+
+      @customer.subscriptions.delete(sub)
+      json_response(SubscriptionSerializer.new(@customer.subscriptions))
     end
   end
 
