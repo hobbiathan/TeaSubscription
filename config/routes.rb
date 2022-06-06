@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       post '/subscriptions', to: 'subscriptions#create'
       patch 'subscriptions', to: 'subscriptions#update'
       get '/subscriptions', to: 'subscriptions#index'
+      delete '/subscriptions', to: 'subscriptions#destroy'
     end
   end
 end
