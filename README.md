@@ -5,7 +5,7 @@ When cloning this project down to your machine, the repository should automate m
 
 `rails db:{create,migrate}`
 
-After that is completed, the app should be up and functional.
+After that is completed, the app should be up and functional, simply run 'rails s' and fire up your API platform of choice.
 
 ## Database Structure
 ![Screen Shot 2022-06-03 at 9 10 36 AM](https://user-images.githubusercontent.com/77761679/171881814-bee6e7ad-ddb8-489a-a8ba-ec3d482bcf6a.png)
