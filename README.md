@@ -78,6 +78,7 @@ The email is required to send the user a serialized JSON of all their now curren
 Because this was a short take-home project for the program I'm attending, there's a lot of functionality that doesn't exist that seemingly should, or things that don't seem as rounded out in structure because there wasn't enough time to implement it. Several things that I would do if given more time to improve this application and make it more rounded it out would be:
 
 * Automatically creating an API key attached to each customer and creating those checks (e.g., a required field within the body of a request) to restrict who can make requests to the application 
+* Restrict user CRUD functionality solely to their own subscriptions 
 * Make subscription cost based off of the types of tea, quantity, and frequency, instead of having it statically set
 * Create tea 'bundles' to more effectively show why the database was structured the way it was 
 * Find teas based off of more unique, salted names, or purely by ID instead of by plain names in both request bodies and the controller
