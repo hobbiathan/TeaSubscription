@@ -62,5 +62,16 @@ The `GET /api/v1/subscriptions` endpoint is the most simple of the endpoints. It
 }
 ```
 
+### DELETE /api/v1/subscriptions
+The 'DELETE /api/v1/subscriptions' endpoint is used to delete a specific subscription of a given account. There are most-definitely significantly more secure ways I could've approached this endpoint (much more, the entire creation of this application), but it was outside of the scope required for technical project completion. The endpoint requires a request body who's structure is that of the following
+
+```json
+{
+  "email": "hubertroberts@gmail.com",
+  "subscription_id": "1"
+}
+```
+The email is required to send the user a serialized JSON of all their now currently existing subscriptions.
+
 ## Misc 
 ok 👍🏼
